@@ -40,7 +40,7 @@ public class NotaFiscalService {
 		nf.setValorTotal(valorTotalProdutos + valorImposto);
 		EndpointFinanceiroService service = new EndpointFinanceiroService();
 		EndpointFinanceiro port = service.getEndpointFinanceiroPort();
-		boolean cobrado = port.cobrar(null, valorImposto);
+		boolean cobrado = port.cobrar(cpfOuCnpjEmissor, valorImposto);
 		
 		return cobrado ? nf : null;
 	}

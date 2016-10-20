@@ -41,7 +41,7 @@ public class NotaFiscalService {
 		}
 		Double valorImposto = impostoService.calcularImposto(valorTotalProdutos);
 		nf.setValorTotal(valorTotalProdutos + valorImposto);
-		EndpointFinanceiroService service = new EndpointFinanceiroService(new URL("http://54.191.197.37:8080/FinanceiroWS/EndpointFinanceiro?wsdl"));
+		EndpointFinanceiroService service = new EndpointFinanceiroService();
 		EndpointFinanceiro port = service.getEndpointFinanceiroPort();
 		boolean cobrado = port.cobrar(cpfOuCnpjEmissor, valorImposto);
 		

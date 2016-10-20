@@ -25,4 +25,18 @@ public class UsuarioService {
 		return usuarios.get(cpfOuCnpj);
 	}
 	
+	public void cadastrarUsuario(String cpfOuCnpj, String password) {
+		if (cpfOuCnpj != null) {
+			cpfOuCnpj.replaceAll(".", "");
+			cpfOuCnpj.replaceAll("-", "");
+			cpfOuCnpj.replaceAll("/", "");
+			
+			if (cpfOuCnpj.length() == 11) {
+				usuarios.put(cpfOuCnpj, new Usuario(cpfOuCnpj, null, password));
+			} else {
+				usuarios.put(cpfOuCnpj, new Usuario(null, cpfOuCnpj, password));
+			}
+		}
+	}
+	
 }

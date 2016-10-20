@@ -97,4 +97,9 @@ public class WebServiceNF {
 			throw new Exception("Usuário não autorizado");
 		}
 	}
+	
+	@WebMethod
+	public void cadastrarUsuario (@WebParam(name="cpfOuCnpj")String cpfOuCnpj, @WebParam(name="password")String password) {
+		usuarioService.cadastrarUsuario(cpfOuCnpj, password);
+	}
 }
